@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexo - Biblioteca Online</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Work+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind.config.js"></script>
+</head>
+
+<body class="bg-background text-text">
+    <!-- NAVBAR: Si hay que hacer un cambio en el navbar, al tenerlo como un componente separado,
+el cambio se realizará simultáneamente en todas las páginas al añadirlo por JS. En caso contrario,
+habría que modificar el navbar de las 5 páginas HTML y estaríamos pendientes de liarla. -->
+    <div id="marquee"></div>
+    <div id="navbar" class="sticky top-0 z-50"></div>
+
+    <main>
+
+        <!-- HERO -->
+        <section id="inicio"
+            class="relative min-h-[60vh] overflow-hidden bg-cover bg-center bg-no-repeat px-6 py-10 md:min-h-[55vh] lg:min-h-[35vh] lg:px-16 lg:py-10"
+            style="background-image: url('/images/assets/hero-bg.png');">
+
+            <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+
+            <div class="relative mx-auto max-w-7xl">
+
+                <div class="flex items-center gap-3">
+                    <span class="h-[2px] w-5 bg-primary"></span>
+
+                    <span class="text-xs font-bold tracking-[0.18em] text-primary md:text-sm lg:text-base">
+                        TU PRÓXIMA HISTORIA ESTÁ AQUÍ
+                    </span>
+                </div>
+
+                <h1 class="mt-5 max-w-4xl font-display leading-[0.9] text-text">
+
+                    <span class="block text-5xl tracking-[0.2px] md:text-6xl lg:text-7xl">
+                        Biblioteca<br />Online
+                    </span>
+
+                    <span
+                        class="block text-6xl uppercase tracking-[4px] text-primary md:text-7xl lg:text-8xl lg:tracking-[6px]">
+                        Nexo
+                    </span>
+
+                </h1>
+
+                <p class="mt-5 max-w-2xl text-base leading-relaxed text-text md:text-lg lg:text-xl">
+                    Una amplia variedad de libros de diferentes géneros y categorías,
+                    pensada para todo tipo de lectores.
+                </p>
+
+                <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+
+                    <a href="catalogue.html"
+                        class="flex items-center justify-between gap-2 bg-primary px-6 py-3 text-center text-text transition-all duration-200 hover:bg-primaryHover">
+
+                        <span class="text-base md:text-lg lg:text-lg">
+                            Explorar catálogo
+                        </span>
+
+                        <i class="ph ph-arrow-up-right text-lg"></i>
+
+                    </a>
+
+                    <a href="contact.html"
+                        class="flex items-center justify-between gap-2 border border-background px-6 py-3 text-center text-text transition-all duration-200 hover:border-primaryHover hover:bg-primaryHover hover:text-text">
+
+                        <span class="text-base md:text-lg lg:text-lg">
+                            Regístrate
+                        </span>
+
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FAVORITOS -->
+        <section id="recomendados"
+            class="border-b-2 border-border bg-background px-6 py-4 md:px-10 md:py-10 lg:px-12 lg:py-8">
+
+            <span class="font-display text-2xl tracking-[0.25px] text-textDark md:text-3xl lg:text-3xl">
+                Nuestros favoritos
+            </span>
+
+            <a href="favorites.html"
+                class="mb-6 flex items-center justify-between border-b border-border py-3 text-primary transition-all duration-200 hover:text-primaryHover">
+
+                <span class="text-base md:text-lg lg:text-lg">
+                    Ver todas las recomendaciones
+                </span>
+
+                <i class="ph ph-arrow-up-right text-lg md:text-xl"></i>
+
+            </a>
+
+            <div id="carousel" class="w-full overflow-hidden">
+
+                <div id="slides" class="flex touch-pan-x transition-transform duration-500 ease-out">
+
+                    <!-- RECOMENDACIÓN 1 -->
+                    <div class="relative w-full shrink-0 overflow-hidden">
+
+                        <div class="absolute inset-0 scale-110 bg-cover bg-center blur-xl"
+                            style="background-image: url('images/books/favorites/libro1.jpg');">
+                        </div>
+
+                        <div class="absolute inset-0 bg-backgroundDark/70"></div>
+
+                        <div
+                            class="relative flex min-h-[450px] w-full items-center justify-center px-6 py-10 lg:min-h-[480px] lg:px-12">
+
+                            <div class="flex w-full max-w-5xl items-center justify-center gap-10 lg:gap-14">
+
+                                <div class="hidden w-[200px] shrink-0 overflow-hidden shadow-2xl md:block lg:w-[220px]">
+
+                                    <img src="images/books/favorites/libro1.jpg" alt="Portada de Ready Player One"
+                                        class="h-auto w-full object-cover">
+
+                                </div>
+
+                                <div class="max-w-xl text-center text-text md:text-left">
+
+                                    <span
+                                        class="text-sm font-semibold uppercase tracking-[0.18em] md:text-base lg:text-base">
+                                        Ernest Cline
+                                    </span>
+
+                                    <h2 class="mt-3 font-display text-4xl leading-tight md:text-5xl lg:text-5xl">
+                                        Ready Player One
+                                    </h2>
+
+                                    <p class="mt-4 max-w-xl text-sm leading-relaxed md:text-base lg:text-base">
+                                        Aventuras, videojuegos y referencias a la cultura pop en una carrera
+                                        por descubrir los secretos de un mundo Online.
+                                    </p>
+
+                                    <a href="book.html?id=ready-player-one"
+                                        class="mt-6 inline-flex items-center gap-2 border border-background px-5 py-2.5 text-sm font-semibold tracking-[0.1em] text-text transition-all duration-200 hover:bg-white hover:text-textDark">
+
+                                        <span class="text-sm md:text-base">
+                                            Descubrir libro
+                                        </span>
+
+                                        <i class="ph ph-arrow-up-right text-base"></i>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- RECOMENDACIÓN 2 -->
+                    <div class="relative w-full shrink-0 overflow-hidden">
+
+                        <div class="absolute inset-0 scale-110 bg-cover bg-center blur-xl"
+                            style="background-image: url('images/books/favorites/libro2.jpg');">
+                        </div>
+
+                        <div class="absolute inset-0 bg-backgroundDark/70"></div>
+
+                        <div
+                            class="relative flex min-h-[450px] w-full items-center justify-center px-6 py-10 lg:min-h-[480px] lg:px-12">
+
+                            <div class="flex w-full max-w-5xl items-center justify-center gap-10 lg:gap-14">
+
+                                <div class="hidden w-[200px] shrink-0 overflow-hidden shadow-2xl md:block lg:w-[220px]">
+
+                                    <img src="images/books/favorites/libro2.jpg" alt="Portada de Pokécology"
+                                        class="h-auto w-full object-cover">
+
+                                </div>
+
+                                <div class="max-w-xl text-center text-text md:text-left">
+
+                                    <span
+                                        class="text-sm font-semibold uppercase tracking-[0.18em] md:text-base lg:text-base">
+                                        Pokémon
+                                    </span>
+
+                                    <h2 class="mt-3 font-display text-4xl leading-tight md:text-5xl lg:text-5xl">
+                                        Pokécology
+                                    </h2>
+
+                                    <p class="mt-4 max-w-xl text-sm leading-relaxed md:text-base lg:text-base">
+                                        Un recorrido por la naturaleza y los ecosistemas del mundo Pokémon,
+                                        explorando cómo viven y se relacionan sus criaturas.
+                                    </p>
+
+                                    <a href="book.html?id=pokecology"
+                                        class="mt-6 inline-flex items-center gap-2 border border-background px-5 py-2.5 text-sm font-semibold tracking-[0.1em] text-text transition-all duration-200 hover:bg-white hover:text-textDark">
+
+                                        <span class="text-sm md:text-base">
+                                            Descubrir libro
+                                        </span>
+
+                                        <i class="ph ph-arrow-up-right text-base"></i>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- RECOMENDACIÓN 3 -->
+                    <div class="relative w-full shrink-0 overflow-hidden">
+
+                        <div class="absolute inset-0 scale-110 bg-cover bg-center blur-xl"
+                            style="background-image: url('images/books/favorites/libro3.jpg');">
+                        </div>
+
+                        <div class="absolute inset-0 bg-backgroundDark/70"></div>
+
+                        <div
+                            class="relative flex min-h-[450px] w-full items-center justify-center px-6 py-10 lg:min-h-[480px] lg:px-12">
+
+                            <div class="flex w-full max-w-5xl items-center justify-center gap-10 lg:gap-14">
+
+                                <div class="hidden w-[200px] shrink-0 overflow-hidden shadow-2xl md:block lg:w-[220px]">
+
+                                    <img src="images/books/favorites/libro3.jpg" alt="Portada de Solanin"
+                                        class="h-auto w-full object-cover">
+
+                                </div>
+
+                                <div class="max-w-xl text-center text-text md:text-left">
+
+                                    <span
+                                        class="text-sm font-semibold uppercase tracking-[0.18em] md:text-base lg:text-base">
+                                        Inio Asano
+                                    </span>
+
+                                    <h2 class="mt-3 font-display text-4xl leading-tight md:text-5xl lg:text-5xl">
+                                        Solanin
+                                    </h2>
+
+                                    <p class="mt-4 max-w-xl text-sm leading-relaxed md:text-base lg:text-base">
+                                        Una historia sobre crecer, tomar decisiones y enfrentarse a un futuro
+                                        que no siempre resulta ser como lo habíamos imaginado.
+                                    </p>
+
+                                    <a href="book.html?id=solanin"
+                                        class="mt-6 inline-flex items-center gap-2 border border-background px-5 py-2.5 text-sm font-semibold tracking-[0.1em] text-text transition-all duration-200 hover:bg-white hover:text-textDark">
+
+                                        <span class="text-sm md:text-base">
+                                            Descubrir libro
+                                        </span>
+
+                                        <i class="ph ph-arrow-up-right text-base"></i>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="dots" class="mt-5 flex justify-center gap-5">
+
+                    <button class="dot font-display text-lg text-primary md:text-xl" data-slide="0"
+                        aria-label="Ir al slide 1">
+                        01
+                    </button>
+
+                    <button class="dot font-display text-lg text-textDark transition hover:text-primary md:text-xl"
+                        data-slide="1" aria-label="Ir al slide 2">
+                        02
+                    </button>
+
+                    <button class="dot font-display text-lg text-textDark transition hover:text-primary md:text-xl"
+                        data-slide="2" aria-label="Ir al slide 3">
+                        03
+                    </button>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- NOVEDADES -->
+        <section id="novedades"
+            class="border-b-2 border-border bg-background px-6 py-8 md:px-10 md:py-10 lg:px-12 lg:py-8">
+
+            <span class="font-display text-2xl tracking-[0.25px] text-textDark md:text-3xl lg:text-3xl">
+                Novedades - Septiembre 2026
+            </span>
+
+            <a href="catalogue.html?relevancia=novedades"
+                class="mb-6 flex items-center justify-between border-b border-border py-3 text-primary transition-all duration-200 hover:text-primaryHover">
+
+                <span class="text-base md:text-lg lg:text-lg">
+                    Ver todas las recomendaciones
+                </span>
+
+                <i class="ph ph-arrow-up-right text-lg md:text-xl"></i>
+
+            </a>
+
+
+            <!-- LIBROS -->
+            <div class="grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+
+
+                <!-- LIBRO 1 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/news/dormircuandonopuedesdormir.jpg"
+                            alt="Portada de Dormir Cuando No Puedes Dormir"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-3 top-3 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text md:text-xs">
+                            Autoayuda
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark md:text-2xl xl:text-xl">
+                            Dormir Cuando No Puedes Dormir
+                        </h3>
+
+                        <p
+                            class="mt-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-textGray md:text-xs xl:text-[11px]">
+                            Rafael Santandreu
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textDark/80 md:text-base xl:text-sm">
+                            Una guía práctica para entender el insomnio, romper el círculo de preocupación
+                            alrededor del sueño y recuperar poco a poco el descanso.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray md:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=dormir-cuando-no-puedes-dormir"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover md:text-xs">
+
+                                    <span>Ver detalles</span>
+
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 2 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/news/eltrendelamedianoche.jpg" alt="Portada de El Tren de la Medianoche"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-3 top-3 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text md:text-xs">
+                            Misterio
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark md:text-2xl xl:text-xl">
+                            El Tren de la Medianoche
+                        </h3>
+
+                        <p
+                            class="mt-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-textGray md:text-xs xl:text-[11px]">
+                            Michiko Aoyama
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textDark/80 md:text-base xl:text-sm">
+                            Un viaje nocturno, encuentros inesperados y secretos que salen a la luz
+                            mientras el tren avanza hacia su misterioso destino.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray md:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=el-tren-de-la-medianoche"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover md:text-xs">
+
+                                    <span>Ver detalles</span>
+
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 3 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/news/harrypotterreliquias20.jpg"
+                            alt="Portada de Harry Potter y las Reliquias de la Muerte - 20 Aniversario"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-3 top-3 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text md:text-xs">
+                            Fantasía
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark md:text-2xl xl:text-xl">
+                            Harry Potter y las Reliquias de la Muerte
+                        </h3>
+
+                        <p
+                            class="mt-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-textGray md:text-xs xl:text-[11px]">
+                            J. K. Rowling
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textDark/80 md:text-base xl:text-sm">
+                            El capítulo final de la saga de Harry Potter regresa en una edición especial
+                            para celebrar dos décadas de magia, aventuras y una historia inolvidable.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray md:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=harry-potter-reliquias-muerte"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover md:text-xs">
+
+                                    <span>Ver detalles</span>
+
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 4 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/news/lamascaradadelcarnicero.jpg"
+                            alt="Portada de La Mascarada del Carnicero"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-3 top-3 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text md:text-xs">
+                            Terror
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark md:text-2xl xl:text-xl">
+                            La Mascarada del Carnicero
+                        </h3>
+
+                        <p
+                            class="mt-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-textGray md:text-xs xl:text-[11px]">
+                            L. M. Fox
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textDark/80 md:text-base xl:text-sm">
+                            Una noche de máscaras, secretos y violencia donde nadie parece ser
+                            quien dice ser y escapar puede resultar mucho más difícil de lo esperado.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray md:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=la-mascarada-del-carnicero"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover md:text-xs">
+
+                                    <span>Ver detalles</span>
+
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 5 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/news/zodiacacademy.jpg" alt="Portada de Zodiac Academy"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-3 top-3 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text md:text-xs">
+                            Fantasía
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark md:text-2xl xl:text-xl">
+                            Zodiac Academy
+                        </h3>
+
+                        <p
+                            class="mt-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-textGray md:text-xs xl:text-[11px]">
+                            Caroline Peckham & Susanne Valenti
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textDark/80 md:text-base xl:text-sm">
+                            Dos hermanas descubren un mundo de magia, rivalidades y criaturas
+                            extraordinarias mientras luchan por encontrar su lugar en Zodiac Academy.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray md:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=zodiac-academy"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover md:text-xs">
+
+                                    <span>Ver detalles</span>
+
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 6 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/news/miperro.jpg"
+                            alt="Portada de Mi Perro: Una guía práctica para cuidar a tu mascota"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-3 top-3 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text md:text-xs">
+                            Mascotas
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark md:text-2xl xl:text-xl">
+                            Mi Perro: Una guía práctica para cuidar a tu mascota
+                        </h3>
+
+                        <p
+                            class="mt-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-textGray md:text-xs xl:text-[11px]">
+                            Jess French
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textDark/80 md:text-base xl:text-sm">
+                            Una guía ilustrada para conocer mejor a tu perro y aprender a cuidar de su
+                            alimentación, higiene, salud y bienestar en el día a día.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray md:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=mi-perro"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover md:text-xs">
+
+                                    <span>Ver detalles</span>
+
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 7 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/news/enamorarsedeunvampiro.jpg"
+                            alt="Portada de Enamorarse de un Vampiro es un Caos"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-3 top-3 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text md:text-xs">
+                            Romance
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark md:text-2xl xl:text-xl">
+                            Enamorarse de un Vampiro es un Caos
+                        </h3>
+
+                        <p
+                            class="mt-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-textGray md:text-xs xl:text-[11px]">
+                            Aura Hayes
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textDark/80 md:text-base xl:text-sm">
+                            Una historia de romance, vampiros y situaciones inesperadas en la que
+                            enamorarse de la persona equivocada puede convertirlo todo en un auténtico caos.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray md:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=enamorarse-de-un-vampiro"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover md:text-xs">
+
+                                    <span>Ver detalles</span>
+
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div class="mt-10 flex justify-center">
+
+                <a href="catalogue.html"
+                    class="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold text-text transition-all duration-200 hover:bg-primaryHover md:px-7 md:py-3.5 md:text-base">
+
+                    <span>Explorar catálogo completo</span>
+
+                    <i class="ph ph-arrow-up-right text-lg"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="border-b-2 border-text bg-primary px-6 py-5 md:px-8 md:py-8 lg:px-10 lg:py-7">
+
+            <div class="mx-auto flex max-w-2xl flex-col items-center text-center">
+
+                <span class="font-display text-2xl tracking-[0.25px] text-text md:text-3xl lg:text-3xl">
+                    ¿Qué historia te gustaría descubrir?
+                </span>
+
+                <p class="mt-4 max-w-2xl text-base text-text md:text-lg lg:text-lg">
+                    Cuéntanos tus gustos, intereses o qué tipo de libro buscas y te ayudaremos a encontrarlo.
+                </p>
+
+                <a href="contact.html"
+                    class="mt-6 inline-flex items-center gap-2 border border-background px-5 py-2.5 text-sm font-semibold tracking-[0.1em] text-text transition-all duration-200 hover:bg-white hover:text-textDark">
+
+                    <span>Habla con nosotros</span>
+
+                    <i class="ph ph-envelope-simple"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+         <div class="hidden" id="modal"></div>
+    </main>
+    <!-- FOOTER: La misma justifacion con el navbar -->
+    <div id="footer"></div>
+
+    <script src="/js/menu.js"></script>
+    <script src="/js/carousel.js"></script>
+
+</body>
+
+</html>

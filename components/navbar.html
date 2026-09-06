@@ -1,0 +1,63 @@
+<!-- NAVBAR: Dos versiones, desktop y mobile -->
+
+<nav class="bg-background text-textDark border-b-2 border-border">
+    <div class="container mx-auto px-6 md:px-4 lg:px-2 ">
+        <div class="flex h-20 items-center justify-between">
+
+            <a href=".." class="flex items-center">
+                <img src="images/assets/logo-negro.png" alt="Nexo - Biblioteca Digital" class="h-10 w-auto md:h-12">
+            </a>
+
+            <button id="menu-btn" class="lg:hidden">
+                <i class="ph ph-list text-3xl text-textDark"></i>
+            </button>
+
+            <div class="hidden items-center gap-6 lg:flex">
+
+                <a href=".." class="text-lg font-semibold transition-all duration-200 hover:text-primaryHover hover:underline">
+                    Inicio
+                </a>
+
+                <a href="../catalogue.html"
+                    class="text-lg font-semibold transition-all duration-200 hover:text-primaryHover hover:underline">
+                    Catálogo
+                </a>
+
+                <a href="../login.html"
+                    class="text-lg font-semibold transition-all duration-200 hover:text-primaryHover hover:underline">
+                    Identificarse
+                </a>
+
+                <a href="../contact.html"
+                    class="flex items-center gap-2 border-2 border-primary px-4 py-2 text-lg font-semibold text-textDark transition-all duration-200 hover:border-primaryHover hover:bg-primaryHover hover:text-text">
+                    <span>Contacto</span>
+                    <i class="ph ph-envelope-simple text-xl font-semibold"></i>
+                </a>
+
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden border-t-2 border-border bg-background">
+            <div class="px-4 py-5">
+                <div>
+                    <a href=".."
+                        class="flex items-center justify-between border-b border-border py-4 text-textDark hover:bg-backgroundDark hover:px-3 hover:text-text transition-all duration-200">
+                        <span class="font-semibold text-xl md:text-2xl">Inicio</span> <i class="ph ph-arrow-up-right font-semibold text-xl md:text-2xl"></i>
+                    </a>
+                    <a href="../catalogue.html"
+                        class="flex items-center justify-between border-b border-border py-4 text-textDark hover:bg-backgroundDark hover:px-3 hover:text-text transition-all duration-200">
+                        <span class="font-semibold text-xl md:text-2xl">Catálogo</span> <i class="ph ph-arrow-up-right font-semibold text-xl md:text-2xl"></i>
+                    </a>
+                    <a href="../login.html"
+                        class="flex items-center justify-between border-b border-border py-4 text-textDark hover:bg-backgroundDark hover:px-3 hover:text-text transition-all duration-200">
+                        <span class="font-semibold text-xl md:text-2xl">Identificarse</span> <i class="ph ph-arrow-up-right font-semibold text-xl md:text-2xl"></i>
+                    </a>
+                </div>
+                <a href="../contact.html"
+                    class="mt-5 flex items-center justify-between border-2 border-primary px-4 py-4 text-textDark hover:px-3 hover:bg-primaryHover hover:border-primaryHover hover:text-text transition-all duration-200">
+                    <span class="font-semibold text-xl md:text-2xl">Contacto</span> <i class="ph ph-envelope-simple font-semibold text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

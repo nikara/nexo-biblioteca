@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Nexo - Biblioteca Online</title>
+
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Work+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind.config.js"></script>
+</head>
+
+<body class="bg-background text-text">
+
+    <div id="marquee"></div>
+    <div id="navbar" class="sticky top-0 z-50"></div>
+
+    <main>
+
+        <section id="inicio"
+            class="relative min-h-[30vh] overflow-hidden bg-cover bg-center bg-no-repeat px-6 py-10 sm:min-h-[48vh] md:min-h-[44vh] md:px-10 md:py-12 lg:min-h-[25vh] lg:px-14 lg:py-14"
+            style="background-image: url('/images/assets/catalogue-bg.jpg');">
+
+            <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+
+            <div class="relative mx-auto max-w-7xl">
+
+                <div class="flex items-center gap-3 sm:gap-4">
+
+                    <span class="h-[2px] w-5 bg-primary sm:w-6"></span>
+
+                    <span class="text-xs font-bold tracking-[0.18em] text-primary md:text-sm lg:text-base">
+                        ENTRE PÁGINAS
+                    </span>
+
+                </div>
+
+                <h1 class="mt-5 max-w-4xl font-display leading-[0.9] text-text">
+                    <span class="block text-4xl tracking-[0.2px] sm:text-5xl md:text-6xl lg:text-6xl">
+                        TODO UN MUNDO
+                    </span>
+
+                    <span
+                        class="block text-5xl uppercase tracking-[4px] text-primary sm:text-6xl md:text-7xl lg:text-7xl lg:tracking-[6px]">
+                        POR LEER
+                    </span>
+                </h1>
+
+
+                <p class="mt-5 max-w-2xl text-base leading-relaxed text-text sm:text-lg md:text-xl lg:text-xl">
+                    Descubre libros de distintos géneros, autores e historias y encuentra una lectura que te acompañe.
+                </p>
+
+            </div>
+        </section>
+        <section id="catalogo"
+            class="border-b-2 border-border bg-background px-6 py-8 sm:px-8 md:px-10 md:py-10 lg:px-14 lg:py-12">
+            <div class="mb-10">
+
+                <div class="flex flex-col gap-5 md:flex-row md:items-end md:gap-4 lg:gap-6">
+
+                    <!-- BUSCAR -->
+                    <div class="flex-1">
+
+                        <label for="buscar"
+                            class="mb-2 block text-[10px] font-semibold uppercase tracking-[0.12em] text-textDark sm:text-xs">
+                            Buscar
+                        </label>
+
+                        <div class="flex items-center border-b-2 border-border">
+
+                            <i class="ph ph-magnifying-glass mr-3 text-lg text-textDark sm:text-xl"></i>
+
+                            <input id="buscar" type="text" placeholder="Título, autor..."
+                                class="w-full bg-transparent px-1 py-2.5 text-sm text-textDark outline-none placeholder:text-textGray sm:py-3 sm:text-base">
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- GÉNERO -->
+                    <div class="w-full md:w-44 lg:w-48">
+
+                        <label for="genero"
+                            class="mb-2 block text-[10px] font-semibold uppercase tracking-[0.12em] text-textDark sm:text-xs">
+                            Género
+                        </label>
+
+                        <select id="genero" onchange="funcionNoImplementada()"
+                            class="w-full border border-border bg-background px-3 py-2.5 text-sm text-textDark outline-none transition-colors focus:border-primary sm:px-4 sm:py-3">
+
+                            <option value="">Todos</option>
+                            <option value="fantasia">Fantasía</option>
+                            <option value="romance">Romance</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="ciencia-ficcion">Ciencia ficción</option>
+                            <option value="manga">Manga</option>
+                            <option value="terror">Terror</option>
+                            <option value="autoayuda">Autoayuda</option>
+                            <option value="mascotas">Mascotas</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- ORDENAR -->
+                    <div class="w-full md:w-44 lg:w-48">
+
+                        <label for="relevancia"
+                            class="mb-2 block text-[10px] font-semibold uppercase tracking-[0.12em] text-textDark sm:text-xs">
+                            Ordenar por
+                        </label>
+
+                        <select id="relevancia" onchange="funcionNoImplementada()"
+                            class="w-full border border-border bg-background px-3 py-2.5 text-sm text-textDark outline-none transition-colors focus:border-primary sm:px-4 sm:py-3">
+
+                            <option value="populares">Relevancia</option>
+                            <option value="novedades">Más recientes</option>
+                            <option value="recomendados">Recomendados</option>
+                            <option value="titulo">Título A-Z</option>
+                            <option value="autor">Autor A-Z</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="grid gap-x-5 gap-y-10 sm:grid-cols-2 sm:gap-x-6 md:gap-y-12 lg:grid-cols-3 xl:grid-cols-6"
+                id="page1">
+
+
+                <!-- LIBRO 1 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/elhobbit.jpg" alt="Portada de El Hobbit"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Fantasía
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            El Hobbit
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            J. R. R. Tolkien
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            Bilbo Bolsón abandona la tranquilidad de su hogar para embarcarse junto a un grupo de enanos
+                            y Gandalf en una aventura en busca de un tesoro custodiado por el dragón Smaug.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=el-hobbit"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 2 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/ellibrohueco.jpg" alt="Portada de El Libro Hueco"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Videojuegos
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            El Libro Hueco
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            Roberto Pineda, Isa Fernández, Sergio Melero & Toni Mula
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            Una guía ilustrada que reconstruye la historia y los secretos de Hallownest, explorando su
+                            geografía, habitantes, criaturas y las leyendas de Hollow Knight.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=el-libro-hueco"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 3 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/harrypotterreliquias20.jpg"
+                            alt="Portada de Harry Potter y las Reliquias de la Muerte"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Fantasía
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            Harry Potter y las Reliquias de la Muerte
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            J. K. Rowling
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            El último capítulo de la saga enfrenta a Harry y sus amigos a la batalla definitiva contra
+                            Voldemort y las fuerzas que amenazan el mundo mágico.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=harry-potter-reliquias-muerte"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 4 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/jjk26.jpg" alt="Portada de Jujutsu Kaisen 26"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Manga
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            Jujutsu Kaisen 26
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            Gege Akutami
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            La batalla continúa mientras los hechiceros se enfrentan a algunas de las amenazas más
+                            poderosas del mundo de Jujutsu Kaisen.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=jujutsu-kaisen-26"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 5 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/lamascaradadelcarnicero.jpg"
+                            alt="Portada de La Mascarada del Carnicero"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Ciencia ficción
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            La Mascarada del Carnicero
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            Matt Dinniman
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            Carl y la Princesa Dónut continúan luchando por sobrevivir en una mazmorra convertida en el
+                            espectáculo más peligroso de la galaxia.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=la-mascarada-del-carnicero"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 6 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/nacidosdelabruma1.jpg" alt="Portada de Nacidos de la bruma"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Fantasía
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            Nacidos de la bruma
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            Brandon Sanderson
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            En un mundo cubierto de ceniza y gobernado por un tirano inmortal, una joven ladrona
+                            descubre que posee un poder capaz de cambiar el destino de todo un imperio.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=nacidos-de-la-bruma"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+            <div class="grid gap-x-5 gap-y-10 pt-10 sm:grid-cols-2 sm:gap-x-6 md:gap-y-12 lg:grid-cols-3 xl:grid-cols-6"
+                id="page2">
+
+
+                <!-- LIBRO 7 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/onepiece113.jpg" alt="Portada de One Piece 113"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Manga
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            One Piece 113
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            Eiichiro Oda
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            Luffy y los demás continúan su aventura mientras los gigantes de Elbaf se enfrentan a una
+                            nueva amenaza y el misterio del One Piece sigue avanzando.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=one-piece-113"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 8 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/lasombradelviento.jpg" alt="Portada de La sombra del viento"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Misterio
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            La sombra del viento
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            Carlos Ruiz Zafón
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            En la Barcelona de posguerra, Daniel Sempere descubre un libro misterioso que lo conduce
+                            hasta una historia de secretos, intrigas y vidas marcadas por la literatura.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=la-sombra-del-viento"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 9 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/pokecology.jpg" alt="Portada de Pokécology"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Guía
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            Pokécology
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            The Pokémon Company
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            Una guía ilustrada que explora los hábitats, comportamientos y relaciones de los Pokémon a
+                            partir de los datos de la Pokédex.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=pokecology"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 10 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/theerastourbook.jpg" alt="Portada de The Eras Tour Book"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Música
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            The Eras Tour Book
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            Taylor Swift
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            Un recorrido visual por The Eras Tour con fotografías de los conciertos, momentos entre
+                            bastidores y reflexiones de Taylor Swift sobre la gira.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=the-eras-tour-book"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 11 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/readyplayerone.jpg" alt="Portada de Ready Player One"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Ciencia ficción
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            Ready Player One
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            Ernest Cline
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            En un futuro dominado por la realidad virtual, Wade Watts participa en una búsqueda llena de
+                            videojuegos, cultura pop y referencias a los años ochenta.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=ready-player-one"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LIBRO 12 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/readyplayertwo.jpg" alt="Portada de Ready Player Two"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Ciencia ficción
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            Ready Player Two
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            Ernest Cline
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            Una nueva aventura dentro del universo de OASIS lleva a Wade y sus compañeros a enfrentarse
+                            a un nuevo desafío repleto de tecnología, cultura pop y videojuegos.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=ready-player-two"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <div class="grid gap-x-5 gap-y-10 pt-10 sm:grid-cols-2 sm:gap-x-6 md:gap-y-12 lg:grid-cols-3 xl:grid-cols-6"
+                id="page3">
+
+
+                <!-- LIBRO 13 -->
+                <article class="flex h-full flex-col">
+
+                    <div class="relative aspect-[2/3] overflow-hidden">
+
+                        <img src="images/books/all/solanin.jpg" alt="Portada de Solanin"
+                            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
+
+                        <span
+                            class="absolute left-2.5 top-2.5 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-text sm:text-xs">
+                            Manga
+                        </span>
+
+                    </div>
+
+                    <div class="flex flex-1 flex-col pt-4">
+
+                        <h3 class="font-display text-xl leading-tight text-textDark sm:text-2xl">
+                            Solanin
+                        </h3>
+
+                        <p class="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-textGray sm:text-xs">
+                            Inio Asano
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-textGray sm:text-[15px]">
+                            Meiko y Taneda son dos jóvenes que intentan encontrar su lugar en la vida adulta mientras se
+                            enfrentan a sus dudas, sus sueños y la incertidumbre sobre el futuro.
+                        </p>
+
+                        <div class="mt-auto pt-5">
+
+                            <div class="flex items-center justify-between gap-2 border-t border-border pt-3">
+
+                                <span class="text-[9px] uppercase tracking-[0.08em] text-textGray sm:text-[10px]">
+                                    Septiembre 2026
+                                </span>
+
+                                <a href="book.html?id=solanin"
+                                    class="flex shrink-0 items-center gap-1.5 text-[11px] font-semibold text-primary transition-colors duration-200 hover:text-primaryHover sm:text-xs">
+
+                                    <span>Ver detalles</span>
+                                    <i class="ph ph-arrow-up-right text-sm"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <nav class="mt-14 flex items-center justify-between border-t border-border pt-5 sm:mt-16 sm:pt-6"
+                aria-label="Paginación">
+
+                <button id="prevPage" type="button"
+                    class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.1em] text-textGray transition-colors hover:text-primary disabled:cursor-not-allowed disabled:opacity-40 sm:text-sm">
+
+                    <i class="ph ph-arrow-left"></i>
+                    Anterior
+
+                </button>
+
+
+                <div class="flex items-center gap-3 text-xs sm:gap-4 sm:text-sm">
+
+                    <span id="currentPage" class="font-bold text-primary">
+                        01
+                    </span>
+
+                    <span class="text-textGray">
+                        /
+                    </span>
+
+                    <span id="totalPages" class="text-textGray">
+                        03
+                    </span>
+
+                </div>
+
+
+                <button id="nextPage" type="button"
+                    class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.1em] text-textDark transition-colors hover:text-primary disabled:cursor-not-allowed disabled:opacity-40 sm:text-sm">
+
+                    Siguiente
+                    <i class="ph ph-arrow-right"></i>
+
+                </button>
+
+            </nav>
+
+        </section>
+
+    </main>
+    <div class="hidden" id="modal"></div>
+
+    <div id="footer"></div>
+
+    <script src="/js/menu.js"></script>
+    <script src="/js/pagination.js"></script>
+
+    <script>
+
+        document.getElementById("buscar").addEventListener("keypress", function (event) {
+
+            if (event.key === "Enter") {
+                funcionNoImplementada();
+            }
+
+        });
+
+
+        function funcionNoImplementada() {
+            //alert("eeeey");
+        }
+
+    </script>
+
+</body>
+
+</html>
